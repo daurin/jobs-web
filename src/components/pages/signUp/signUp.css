@@ -1,0 +1,56 @@
+.sign-up{
+    height: 100%;
+    min-height: 100%;    
+}
+
+.sign-up .form-submit{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 690px;
+}
+
+.sign-up .form-submit>.form-body{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.sign-up .form-submit .user_name,
+.sign-up .form-submit .email,
+.sign-up .form-submit .pass,
+.sign-up .form-submit .conf-pass{
+    min-width: 280px;
+    flex: 1 1 ;
+}
+
+.sign-up .form-submit .name{
+    flex: 1 1 100%;
+}
+
+.sign-up .form-submit .name{margin: 0 0 20px 0;}
+.sign-up .form-submit .user_name{margin: 0 20px 20px 0;}
+.sign-up .form-submit .email{margin: 0 0 20px 0;}
+.sign-up .form-submit .pass{margin: 0 20px 0 0;}
+.sign-up .form-submit .conf-pass{margin: 0 0 0 0;}
+
+.sign-up .form-submit .sign-in-link{
+    margin-top: 10px;
+    float: left;
+}
+
+@media screen and (max-width: 640px) {
+    .sign-up .form-submit{
+        position: unset;
+        top: unset;
+        left: unset;
+        transform: unset;
+        width: 100%;
+    }
+
+    .sign-up .form-submit .name{margin: 0 0 20px 0;}
+    .sign-up .form-submit .user_name{margin: 0 0 20px 0;}
+    .sign-up .form-submit .email{margin: 0 0 20px 0;}
+    .sign-up .form-submit .pass{margin: 0 0 20px 0;}
+    .sign-up .form-submit .conf-pass{margin: 0 0 0 0;}
+}

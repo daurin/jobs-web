@@ -1,0 +1,55 @@
+.text-field{
+    transition: .5s;
+}
+
+.text-field label{
+    display: block;
+    font-weight: 600;
+    color: var(--primary-color);
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.text-field.disable label{
+    color: #848f99;
+}
+
+.text-field input{
+    border: 2px solid #d5dce0;
+    border-radius: 5px;
+    cursor: text;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 9px;
+    color: #5c5c5c;
+    font-size: 17px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.text-field input::placeholder{
+    color: #cacaca;
+}
+
+.text-field.error input{
+    border-color: #ff4343;
+}
+
+.text-field.ok input{
+    border-color: #77e27c;
+}
+
+.text-field .message{
+    display: block;
+    margin-top: 4px;
+    font-size: 15px;
+    color: #848f99;
+}
+
+.text-field.error .message{
+    color: #f05e5e;
+    
+}
+.text-field input:focus{
+    border-color: var(--secondary-color);
+}

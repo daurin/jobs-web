@@ -1,0 +1,80 @@
+.button{
+    height: 40px;
+    min-height: 40px;
+    width: auto;
+    min-width: 80px;
+    
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 5px;
+    padding: 0 18px;
+}
+
+.button span{
+    transition: 0.3s;
+    cursor: inherit;
+    font-size: 17px;
+    font-weight: 700;
+    
+}
+
+.button.disable{
+    cursor: default;
+    transition: unset;
+}
+
+.button.primary-light:not(.disable){
+    background-color: var(--primary-color);
+}
+
+
+.button.primary-light.enable span{
+    color: #f3f3f3;
+}
+.button.primary-light.button.disable span{
+    color: #ffffff8e;
+}
+
+.button.primary-light.enable:hover{
+    background-color: var(--primary-light-color);
+}
+
+.button.primary-light.enable:active{
+    background-color: var(--primary-dark-color);
+}
+
+.button.primary-light.enable:focus{
+    box-shadow: 0 0 1px 3px var(--secondary-color);
+}
+
+.button.primary-light.button.disable{
+    background-color: #5c5c5c86;
+}
+
+@keyframes loading {
+    0%{
+        transform: rotate(0deg);
+    }
+    50%{
+        transform: rotate(180deg);
+        opacity: 0.50;
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+ 
+.button.loading::after {
+    content: '';
+    box-sizing: border-box;
+    margin-left:10px;
+    float: right;
+    width: 20px;
+    height: 20px;
+    top: 2px;
+    border-radius: 100%;
+    border: 3px solid var(--secondary-light-color);
+    border-top: 3px solid transparent;
+    animation: loading infinite linear 0.7s;
+
+}

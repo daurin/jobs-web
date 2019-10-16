@@ -1,0 +1,71 @@
+.form-submit{
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #ffffff;
+}
+
+.form-submit .form-header{
+    /*background-color: #EFF0F1;*/
+    background-color: #dfdfdf;
+}
+
+.form-submit .form-header>h1{
+    font-size: 30px;
+    text-align:center;
+    color:#494949;
+    padding:20px 0;
+}
+
+.form-submit>.message{
+    background-color: #f57878;
+    border: #e43232 3px solid;
+    margin: 15px 33px;
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 14px;
+    opacity: 1;
+    transition: opacity 2s;
+    position: relative;
+}
+
+.form-submit>.message>span{
+    display: block;
+    color: #ffffff;
+    font-size: 17px;
+    word-wrap: break-word;
+    margin-right: 22px;
+}
+
+.form-submit>.message>button{
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    background-color: transparent;
+    overflow:auto;
+    cursor: pointer;
+}
+.form-submit>.message>button>img{
+    width: 20px;
+}
+
+.form-submit .form-body{
+    padding: 33px;
+}
+
+.form-submit .form-footer{
+    background-color: #dfdfdf;
+    padding:15px 33px;
+    text-align: right;
+    clear:both;
+}
+
+@media screen and (max-width: 640px) {
+    .form-submit .form-body{
+        padding: 20px;
+    }
+
+    .form-submit .form-footer{
+        padding: 10px 20px;
+        
+    }
+}

@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+/*Colores*/
+#root{
+    --primary-color:#00bfa5;
+    --primary-light-color:#25c9ab;
+    --primary-dark-color:#008e76;
+
+    --secondary-color:#ffff00;
+    --secondary-light-color:#ffff5a;
+    --secondary-dark-color:#c7cc00;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    border: 0;
+    outline: 0;
+    font-family: 'Google Sans',Roboto,Arial,sans-serif;
+    -webkit-tap-highlight-color:transparent;
+}
+
+body,html,#root{
+    
+}
+
+body {
+    background-color: #ffffff;
+}
+
+a{
+    cursor: pointer;
+}
+
+.box-shadow{
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.12);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.12);
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.12);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
