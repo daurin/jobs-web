@@ -14,18 +14,7 @@ import {verifyTokenls,setTokenls as setTokenUtil,getTokenls} from '../../../util
 import {useDispatch,useSelector} from 'react-redux';
 import {setUserByToken} from '../../../redux/actions/userActions';
 import LoadingPage from '../loadingPage';
-
-function Copyright() {
-    return (
-        <Typography variant="body2" color="textSecondary" align="center">
-            {'Copyright © '}
-            <LinkUi style={{color: 'inherit'}} href='http://mipagina.com' target='_blank'>
-                Your Website
-            </LinkUi>{' '}
-            {new Date().getFullYear()}{'.'}
-        </Typography>
-    );
-}
+import Footer from '../../others/Footer';
 
 
 export default (props) => {
@@ -168,7 +157,7 @@ export default (props) => {
                 </form>
             </Paper>
             <Box mt={8}>
-                <Copyright />
+                <Footer />
             </Box>
 
             <Snackbar

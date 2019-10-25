@@ -1,16 +1,34 @@
-import { makeStyles} from "@material-ui/core/styles";
+import { fade,makeStyles} from "@material-ui/core/styles";
+
 
 const drawerWidth = 240;
 
 export default makeStyles(theme => ({
   root: {
-    display: 'flex'
+    display: 'flex',
+    height:'100%',
+    minHeight:'100%'
   },
   appBar: {
     color:'white',
     position: 'fixed',
     transitionDuration:1000*2,
-    boxShadow:'none',
+    //boxShadow:'none'
+  },
+  appBarTitle:{
+    flexGrow:2
+  },
+  search:{
+    flexGrow:5,
+    flexShrink:0,
+    [theme.breakpoints.down('xs')]: {
+      
+    },    
+  },
+  ActionContainer:{
+    display:'flex',
+    justifyContent:'flex-end',
+    flexGrow:3
   },
   appBarShift:{
     [theme.breakpoints.up('sm')]: {
@@ -23,9 +41,6 @@ export default makeStyles(theme => ({
     //   easing: theme.transitions.easing.easeOut,
     //   duration: theme.transitions.duration.leavingScreen,
     // })
-  },
-  appBarTitle:{
-    flexGrow:1
   },
   menuButton: {
     color:'white',
@@ -42,7 +57,7 @@ export default makeStyles(theme => ({
     display: 'flex',
     alignItems: 'center',
     padding: theme.spacing(0, 1),
-    justifyContent: 'flex-end'
+    justifyContent: 'flex-end',
   },
   drawerPaper: {
     width: drawerWidth,
@@ -54,12 +69,16 @@ export default makeStyles(theme => ({
     },
   },
   content: {
+    backgroundColor:'#FAFAFA',
     flexGrow: 1,
-    padding: theme.spacing(3),
+    //padding: theme.spacing(5,12,0,12),
     transition: theme.transitions.create('margin', {
       easing: theme.transitions.easing.easeOut,
       duration: theme.transitions.duration.leavingScreen,
     }),
+    [theme.breakpoints.down('sm')]:{
+      //padding: theme.spacing(2,2,0,2),
+    }
   },
   contentShift: {
     [theme.breakpoints.up('sm')]:{  
@@ -72,5 +91,8 @@ export default makeStyles(theme => ({
   },
   hide: {
     display:'none'
+  },
+  footer:{
+    position:'relative',
   }
 }));

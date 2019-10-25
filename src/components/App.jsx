@@ -6,7 +6,7 @@ import {Provider} from 'react-redux';
 import SignUp from './pages/signUp';
 import SignIn from './pages/SignIn';
 import SignIn2 from './pages/signIn2';
-import Home from './pages/home';
+import Main from './pages/main';
 import Loading from './pages/loadingPage';
 import PageNotFound from './pages/PageNotFound';
 import ProtectedRoute from './highOrder/ProtectedRoute';
@@ -23,7 +23,7 @@ function App() {
               <Route exact path='/signinold' component={SignIn}/>
               <Route exact path='/signin' component={SignIn2}/>
               <Route exact path='/signup' component={SignUp}/>
-              <ProtectedRoute path='/' component={Home}/>
+              <Route path='/' component={Main}/>
               <Route exact path='/loading' component={Loading}/>
               <Route component={PageNotFound}/>
             </Switch>
