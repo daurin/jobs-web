@@ -13,7 +13,7 @@ import ProtectedRoute from './highOrder/ProtectedRoute';
 import { MuiThemeProvider } from '@material-ui/core/styles';
 import theme from './theme.js';
 
-function App() {
+export default (props)=> {
 
   return (  
       <BrowserRouter>
@@ -33,5 +33,3 @@ function App() {
   );
 
 }
-
-export default App;

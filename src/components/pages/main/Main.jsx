@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 import {
   AppBar, Box, Toolbar, InputBase, IconButton, Typography, Divider, List, ListItem, ListItemText,
   ListItemIcon, Hidden, InputAdornment,Avatar,
-  SwipeableDrawer, Button, ListSubheader
+  SwipeableDrawer, Button
 } from '@material-ui/core';
 import { Menu as MenuIcon, ArrowBack as ArrowBackIcon } from '@material-ui/icons';
 import SearchIcon from '@material-ui/icons/Search';
@@ -37,11 +37,9 @@ export default (props) => {
 
   let main = null;
   switch (props.location.pathname) {
-    case '/': main = (<Home/>); break;
-    case '/warehouses': main = 'Almacenes'; break;
-    case '/articles': main = 'Aticulos'; break;
-    case '/providers': main = 'Proveedores'; break;
-    case '/clients': main = 'Clientes'; break;
+    case '/': main = <Home/>; break;
+    case '/jobs': main = <Home/>; break;
+    case '/credits': main = 'Agradecimientos'; break;
     default: main = null; break;
   }
 
@@ -124,7 +122,7 @@ export default (props) => {
       <main className={clsx(classes.content, { [classes.contentShift]: drawerOpen })}>
         <div className={classes.drawerHeader} />
         {main}
-        <h1></h1>
+        <Footer/>
       </main>
     </div>
   );

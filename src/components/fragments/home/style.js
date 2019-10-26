@@ -51,6 +51,7 @@ export default makeStyles(theme => ({
     },
     main:{
         display:'flex',
+        minHeight:'400px',
         width:'100%',
         maxWidth:'1180px',
         //padding:'45px 9%',
