@@ -14,7 +14,8 @@ import { useTheme } from '@material-ui/core/styles';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { useDispatch, useSelector } from 'react-redux';
 import { logOut } from '../../../redux/actions/userActions';
-import Home from '../../fragments/home';
+import HomeFragment from '../../fragments/homeFragment';
+import JobsResultFragment from '../../fragments/jobsResultFragment';
 import Footer from '../../others/Footer/index.js';
 
 export default (props) => {
@@ -37,8 +38,8 @@ export default (props) => {
 
   let main = null;
   switch (props.location.pathname) {
-    case '/': main = <Home/>; break;
-    case '/jobs': main = <Home/>; break;
+    case '/': main = <HomeFragment/>; break;
+    case '/jobs': main = <JobsResultFragment/>; break;
     case '/credits': main = 'Agradecimientos'; break;
     default: main = null; break;
   }
@@ -78,12 +79,6 @@ export default (props) => {
           keepMounted: false, // Better open performance on mobile.
         }}>
         <div>
-          <div className={classes.drawerHeader}>
-            <Avatar>I</Avatar>
-            <Typography variant="h6">
-              Invitado
-            </Typography>
-          </div>
           <Divider />
           <List >
             {[

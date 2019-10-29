@@ -1,6 +1,4 @@
 import { fade,makeStyles} from "@material-ui/core/styles";
-
-
 const drawerWidth = 240;
 
 export default makeStyles(theme => ({
@@ -54,10 +52,6 @@ export default makeStyles(theme => ({
   },
   drawerHeader: {
     ...theme.mixins.toolbar,
-    display: 'flex',
-    alignItems: 'center',
-    padding: theme.spacing(0, 1),
-    justifyContent: 'flex-end',
   },
   drawerPaper: {
     width: drawerWidth,
