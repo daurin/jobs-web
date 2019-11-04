@@ -2,13 +2,7 @@
 
 /*Colores*/
 #root{
-    --primary-color:#00bfa5;
-    --primary-light-color:#25c9ab;
-    --primary-dark-color:#008e76;
-
-    --secondary-color:#ffff00;
-    --secondary-light-color:#ffff5a;
-    --secondary-dark-color:#c7cc00;
+   
 }
 
 *{
@@ -16,14 +10,13 @@
     margin: 0;
     border: 0;
     outline: 0;
-    font-family: 'Google Sans',Roboto,Arial,sans-serif;
+    font-family: Roboto,Arial,sans-serif;
     -webkit-tap-highlight-color:transparent;
 }
 
 body,html,#root{
-    height: 100%;
     min-height: 100%;
-    min-width: 350px;
+    min-width: 100%;
 }
 
 body {
@@ -32,6 +25,8 @@ body {
 
 a{
     cursor: pointer;
+    text-decoration: inherit;
+    color:inherit;
 }
 
 .box-shadow{

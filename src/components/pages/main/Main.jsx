@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Link} from 'react-router-dom';
+import { Link, Switch, Route } from 'react-router-dom';
 import {
   AppBar, Box, Toolbar, InputBase, IconButton, Typography, Divider, List, ListItem, ListItemText,
-  ListItemIcon, Hidden, InputAdornment,Avatar,
+  ListItemIcon, Hidden, InputAdornment, Avatar,
   SwipeableDrawer, Button
 } from '@material-ui/core';
 import { Menu as MenuIcon, ArrowBack as ArrowBackIcon } from '@material-ui/icons';
@@ -16,6 +16,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { logOut } from '../../../redux/actions/userActions';
 import HomeFragment from '../../fragments/homeFragment';
 import JobsResultFragment from '../../fragments/jobsResultFragment';
+import JobsFragment from '../../fragments/jobFragment';
 import Footer from '../../others/Footer/index.js';
 
 export default (props) => {
@@ -31,20 +32,13 @@ export default (props) => {
   const dispatch = useDispatch();
   const logOutDispatch = () => dispatch(logOut());
 
+  let main = null;
+
   // Effect
   useEffect(() => {
     //setDrawerOpen(!isMovil);
   }, [isMovil]);
 
-  let main = null;
-  switch (props.location.pathname) {
-    case '/': main = <HomeFragment/>; break;
-    case '/jobs': main = <JobsResultFragment/>; break;
-    case '/credits': main = 'Agradecimientos'; break;
-    default: main = null; break;
-  }
-
-  if (main === null) return <PageNotFound />
   return (
     <div className={classes.root}>
       <AppBar className={clsx(classes.appBar, { [classes.appBarShift]: drawerOpen })} >
@@ -56,9 +50,11 @@ export default (props) => {
             onClick={() => setDrawerOpen(!drawerOpen)}>
             {false ? <ArrowBackIcon /> : <MenuIcon />}
           </IconButton>
-          <Typography variant="h6" noWrap className={classes.appBarTitle}>
-            Empleos.do
+          <Link to='/' className={classes.appBarTitle}>
+            <Typography variant="h6" noWrap>
+              {'Empleos.do { Alpha }'}
             </Typography>
+          </Link>
           <Box className={classes.ActionContainer}>
             <Button style={{ color: 'white' }}
               onClick={() => {
@@ -106,18 +102,23 @@ export default (props) => {
             ))}
             <Divider />
             <ListItem button
-                  onClick={() => {
-                    
-                  }}>
-                  <ListItemText primary={'Salir'} />
-                </ListItem>
+              onClick={() => {
+
+              }}>
+              <ListItemText primary={'Salir'} />
+            </ListItem>
           </List>
         </div>
       </SwipeableDrawer>
       <main className={clsx(classes.content, { [classes.contentShift]: drawerOpen })}>
         <div className={classes.drawerHeader} />
-        {main}
-        <Footer/>
+        <Switch>
+          <Route exact path='/' component={HomeFragment} />
+          <Route exact path='/jobs' component={JobsResultFragment} />
+          <Route exact path='/jobs/:id' component={JobsFragment} />
+          <Route path='/credits' render={() => <h1>Creditos</h1>} />
+        </Switch>
+        <Footer />
       </main>
     </div>
   );

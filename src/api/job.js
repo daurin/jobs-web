@@ -6,14 +6,14 @@ const api = axios.create({
     }
 });
 
-export const getJobs = (config = {
+const getJobs = (config = {
     textSearch: '', offset: 0, limit: 30, status: 'S'
 }) => {
     const { textSearch = '', offset = 0, limit = 30, status } = config;
 
     return api.get('/jobs', {
         params: {
-            textSearch,
+            text_search: textSearch,
             offset,
             limit,
             status
@@ -49,4 +49,36 @@ export const getJobs = (config = {
                 else return Promise.resolve(v);
             }));
         });
+}
+
+const getJob = (id) => {
+    return api.get(`jobs/${id}`)
+        .then((res) => {
+            if (res.status === 200) {
+                let inner = [];
+                return Promise.all([
+                    Promise.resolve(res.data),
+                    (
+                        res.data.user ? api.get(res.data.user).then(r => Promise.resolve(r.data)) :
+                        Promise.resolve(null)
+                    ),
+                    (
+                        res.data.category ? api.get(res.data.category).then(r => Promise.resolve(r.data)) :
+                        Promise.resolve(null)
+                    )
+                ]);
+            }
+            return Promise.reject(res)
+        })
+        .then((res)=>{
+            let job=res[0];
+            if(res[1]!==null)job.user=res[1];
+            if(res[2]!==null)job.category=res[2];
+            return Promise.resolve(job);
+        });
+}
+
+export {
+    getJobs,
+    getJob
 }

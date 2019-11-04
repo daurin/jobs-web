@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { withRouter } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState, useEffect,useLayoutEffect } from 'react';
 import useStyles from './style.js';
 import clsx from 'clsx';
 import qs from 'query-string';
@@ -22,18 +22,16 @@ export default withRouter((props) => {
     // status
     const [searchFocus, setSearchFocus] = useState(true);
     const [jobs, setJobs] = useState([]);
-    const [textSearch, setTextSearch] = useState('');
     const [loading, setLoading] = useState(false);
 
     // Ref
     const searchJobRef = useRef(null);
 
     const classes = useStyles();
+    const textSearch=qs.parse(props.location.search, { ignoreQueryPrefix: true }).text_search||'';
 
     useEffect(() => {
-        const urlQuerys = qs.parse(props.location.search, { ignoreQueryPrefix: true });
-        setTextSearch(urlQuerys.text_search || '');
-        searchJobRef.current.value = textSearch;
+        searchJobRef.current.value=textSearch;
         searchJobs();
     }, [textSearch]);
 
@@ -56,15 +54,17 @@ export default withRouter((props) => {
 
     const onSearchJobs = (e) => {
         if (searchJobRef.current.value.toString().length === 0) {
-            props.history.push(props.history.pathname);
-
+            props.history.push({
+                pathname: '/jobs'
+            });
         }
         else {
-            let urlParams = new URLSearchParams(props.location.search);
-            urlParams.set('text_search', searchJobRef.current.value);
-            props.history.push('jobs' + "?" + urlParams.toString());
+            props.history.push({
+                pathname: '/jobs',
+                search: qs.stringify({text_search:searchJobRef.current.value})
+            });
         }
-        setTextSearch(searchJobRef.current.value);
+
     }
 
     return (
@@ -104,7 +104,7 @@ export default withRouter((props) => {
                     <List
                         style={{ width: '100%' }}
                         subheader={
-                            <ListSubheader component="div">
+                            <ListSubheader disableSticky={true} component="div">
                                 <Typography gutterBottom variant="h5">
                                     {jobs.length > 0 ? 'Resultado' : 'Sin resultados'}
                                 </Typography>

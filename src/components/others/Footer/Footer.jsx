@@ -9,11 +9,7 @@ export default ({className=''})=>{
     return(
         <footer className={clsx(className,classes.root)}>
             <Typography className={classes.copyright} variant="body2" color="textSecondary" align="center">
-                {'Copyright © '}
-                <Link style={{color: 'inherit'}} href='http://mipagina.com' target='_blank'>
-                    Your Website
-                </Link>{' '}
-                {new Date().getFullYear()}{'.'}
+                {'Copyright © Daurin Lora Mejia '}{new Date().getFullYear()}{'.'}
             </Typography>
         </footer>
     )

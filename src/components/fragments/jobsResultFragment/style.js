@@ -12,7 +12,7 @@ export default makeStyles(theme => ({
     inputSearch: {
         flexGrow:5,
         flexShrink:1,
-        minWidth:'300px',
+        minWidth:'250px',
         maxWidth:'550px',
         margin:'8px',
         height:'55px'
@@ -21,7 +21,7 @@ export default makeStyles(theme => ({
         flexGrow:5,
         flexShrink:1,
         //flexBasis:'50%',
-        minWidth:'300px',
+        minWidth:'250px',
         maxWidth:'550px',
         minHeight:'55px',
         margin:'8px',

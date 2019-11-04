@@ -1,6 +1,9 @@
 import { fade, makeStyles } from "@material-ui/core/styles";
 
 export default makeStyles(theme => ({
+    root:{
+        backgroundColor: '#f8f8f8',
+    },
     containerSearch:{
         display:'flex',
         flexWrap:'wrap',

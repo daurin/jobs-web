@@ -10,7 +10,6 @@ export default makeStyles(theme => ({
   appBar: {
     color:'white',
     position: 'fixed',
-    transitionDuration:1000*2,
     //boxShadow:'none'
   },
   appBarTitle:{
@@ -65,10 +64,11 @@ export default makeStyles(theme => ({
   content: {
     backgroundColor:'#FAFAFA',
     flexGrow: 1,
+    width: '100%',
     //padding: theme.spacing(5,12,0,12),
-    transition: theme.transitions.create('margin', {
+    transition: theme.transitions.create(['margin','width'], {
       easing: theme.transitions.easing.easeOut,
-      duration: theme.transitions.duration.leavingScreen,
+      duration: theme.transitions.duration.enteringScreen,
     }),
     [theme.breakpoints.down('sm')]:{
       //padding: theme.spacing(2,2,0,2),
@@ -78,9 +78,10 @@ export default makeStyles(theme => ({
     [theme.breakpoints.up('sm')]:{  
       transition: theme.transitions.create('margin', {
         easing: theme.transitions.easing.easeOut,
-        duration: theme.transitions.duration.leavingScreen,
+        duration: theme.transitions.duration.enteringScreen,
       }),
       marginLeft: drawerWidth,
+      width: `calc(100% - ${drawerWidth}px)`,
     }
   },
   hide: {

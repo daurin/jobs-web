@@ -50,7 +50,6 @@ export default withRouter((props) => {
         setLoading(true);
         JobApi.getJobs({textSearch:searchJobRef.current.value})
             .then(res=>{
-                console.log(res);
                 setJobs(res);
             })
             .catch(err=>{
@@ -60,7 +59,7 @@ export default withRouter((props) => {
     }
 
     return (
-        <div style={{ backgroundColor: '#f8f8f8' }}>
+        <div className={classes.root}>
             <Box className={classes.containerSearch}>
                 <Typography variant='h3' className={classes.titleSearch}>Busca tu empleo</Typography>
                 <InputSearch
@@ -84,7 +83,7 @@ export default withRouter((props) => {
                     <List
                         style={{ width: '100%' }}
                         subheader={
-                            <ListSubheader component="div">
+                            <ListSubheader disableSticky={true} component="div">
                                 <Typography gutterBottom variant="h5">
                                     Recientes
                                 </Typography>
@@ -93,7 +92,7 @@ export default withRouter((props) => {
                         {jobs.map((v, i) => (
                             <React.Fragment key={v.id}>
                                 <JobItem job={v} />
-                                {i < jobs.length - 1 && <Divider />}
+                                {i+1<jobs.length && <Divider />}
                             </React.Fragment>
                         ))}
                     </List>
