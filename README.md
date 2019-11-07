@@ -1,5 +1,23 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+# Jobs Web
+
+## Installation 💻
+
+### Docker
+
+```bash
+$ docker build -t jobs-web .
+```
+
+## Usage 🚀
+
+### Docker
+
+```bash
+$ docker run -p 3000:80 --name jobs-web -d jobs-web
+```
+
 ## Available Scripts
 
 In the project directory, you can run:
